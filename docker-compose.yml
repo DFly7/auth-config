@@ -34,6 +34,7 @@ services:
     volumes:
       - ./data/media:/media
       - ./data/custom-templates:/templates
+      - ./blueprints:/blueprints/custom
 
   authentik-worker:
     image: ghcr.io/goauthentik/server:2026.2.2
@@ -56,6 +57,7 @@ services:
       - ./data/media:/media
       - ./data/certs:/certs
       - ./data/custom-templates:/templates
+      - ./blueprints:/blueprints/custom
 
   cloudflared:
     image: cloudflare/cloudflared:latest
