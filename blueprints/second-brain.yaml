@@ -24,6 +24,7 @@ entries:
     attrs:
       users:
         - !Find [authentik_core.user, [username, darraghflynn]]
+        - !Find [authentik_core.user, [username, dfly7]]
 
   # ── OAuth2 Provider ──────────────────────────────────────────────────────────
   - model: authentik_providers_oauth2.oauth2provider
