@@ -8,10 +8,10 @@ entries:
   # ── Admin user ───────────────────────────────────────────────────────────────
   - model: authentik_core.user
     identifiers:
-      username: dfly7
+      username: darraghflynn
     attrs:
       name: Darragh Flynn
-      email: account@darraghflynn.com
+      email: admin@darraghflynn.com
       is_active: true
       is_superuser: true
       password: !Env AUTHENTIK_ADMIN_PASSWORD
