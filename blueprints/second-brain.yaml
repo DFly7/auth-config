@@ -5,6 +5,17 @@ metadata:
     blueprints.goauthentik.io/instantiate: "true"
 
 entries:
+  # ── Admin user ───────────────────────────────────────────────────────────────
+  - model: authentik_core.user
+    identifiers:
+      username: dfly7
+    attrs:
+      name: Darragh Flynn
+      email: account@darraghflynn.com
+      is_active: true
+      is_superuser: true
+      password: !Env AUTHENTIK_ADMIN_PASSWORD
+
   # ── OAuth2 Provider ──────────────────────────────────────────────────────────
   - model: authentik_providers_oauth2.oauth2provider
     id: second-brain-provider
