@@ -16,6 +16,15 @@ entries:
       is_superuser: true
       password: !Env AUTHENTIK_ADMIN_PASSWORD
 
+  # ── Access group ─────────────────────────────────────────────────────────────
+  - model: authentik_core.group
+    id: second-brain-users
+    identifiers:
+      name: second-brain-users
+    attrs:
+      users:
+        - !Find [authentik_core.user, [username, darraghflynn]]
+
   # ── OAuth2 Provider ──────────────────────────────────────────────────────────
   - model: authentik_providers_oauth2.oauth2provider
     id: second-brain-provider
@@ -50,3 +59,12 @@ entries:
     attrs:
       name: Second Brain
       provider: !KeyOf second-brain-provider
+
+  # ── Bind group to application ─────────────────────────────────────────────────
+  - model: authentik_policies.policybinding
+    identifiers:
+      target: !KeyOf second-brain-app
+      group: !KeyOf second-brain-users
+      order: 0
+    attrs:
+      enabled: true
